@@ -67,16 +67,19 @@ const DICE_EMPTY = preload("uid://donf3db2sm0bp")
 func all_player_starting_position():
 	pass
 
+func add_visual(shits):
+	var sprite = Sprite2D.new()
+	shits.add_child(sprite)
+	sprite.texture = DICE_EMPTY
+	sprite.modulate = "009e3b5d"
+	sprite.hide()
+	sprite.name = "highlight"
+
 func _ready() -> void:
 	for shits: Node2D in positions.keys():
-		var sprite = Sprite2D.new()
-		if shits is Marker2D:
-			shits.add_child(sprite)
-		else:
-			shits.get_children()[0].add_child(sprite)
-		sprite.texture = DICE_EMPTY
-		#sprite.hide()
-	print(positions.get(inner_pos_1))
+		add_visual(shits)
+	add_visual(win)
+	#print(positions.get(inner_pos_1))
 
 var count = 0
 #
@@ -90,12 +93,17 @@ func _unhandled_input(event: InputEvent) -> void:
 			#var sprite: Sprite2D = items[i]
 			var sprite = items[i]
 			# For circular/radius check (fastest):
-			if sprite.global_position.distance_squared_to(tap_pos) < 900.0: # 50px radius (50*50)
-				print("Tapped: ", sprite.name + " " + str(count))
-				count+=1
+			if sprite.global_position.distance_squared_to(tap_pos) < 900.0:
+				
+				if sprite is Pawn:
+					print("Pawn")
+					show_moves(sprite)
+				
+				#print("Tapped: ", sprite.name + " " + str(count))
+				#count+=1
 				
 				#debug
-				if sprite.name == "dice":
+				elif sprite.name == "dice":
 					dice_val = randi_range(1,6)
 					dice.text = str(dice_val)
 				
@@ -122,5 +130,32 @@ func _unhandled_input(event: InputEvent) -> void:
 				#dice_val = randi_range(1,6)
 				#dice.text = str(dice_val)
 
-func show_moves():
-	pass
+func show_moves(pawn: Pawn) -> void:
+	# Start DFS from the pawn's current position with dice_val steps left
+	_dfs_moves(pawn.current_pos, dice_val, pawn.player_no)
+
+func _dfs_moves(current_pos: Variant, steps_left: int, player_no : int) -> void:
+	# Base case: stop when we run out of dice steps
+	if steps_left <= 0:
+		return
+
+	# Get all possible next positions (branches) from the current tile
+	var next_positions: Array = positions.get(current_pos,[])
+	
+	for marker: Marker2D in next_positions:
+		# Highlight this tile
+		#marker.name == "player%d_base" % player_no or 
+		if marker.name.begins_with("pos_") or marker.name.begins_with("player"):
+			marker.get_child(0).show()
+		
+		# Recursively explore down this specific branch with 1 fewer step
+		_dfs_moves(marker, steps_left - 1, player_no)
+
+
+#func show_moves(pawn: Pawn):
+	#var mark = pawn.current_pos
+	#for i in dice_val:
+		#var mark_arr = positions.get(mark)
+		#for marker: Marker2D in mark_arr:
+			#marker.get_child(0).show()
+		#mark = mark_arr[0]

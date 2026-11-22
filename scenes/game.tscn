@@ -17,9 +17,10 @@ font_color = Color(0.04755766, 0.047557645, 0.047557645, 1)
 script = ExtResource("1_yqjtg")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=807694911]
+layer = -2
 
 [node name="board" parent="UI" unique_id=1973637512 instance=ExtResource("1_uwrxv")]
-mouse_filter = 2
+mouse_filter = 1
 
 [node name="dice" type="Label" parent="UI" unique_id=1206560809]
 offset_left = 1655.0
@@ -29,30 +30,20 @@ offset_bottom = 277.0
 text = "190w"
 label_settings = SubResource("LabelSettings_0b45s")
 
-[node name="player1_base" type="Node2D" parent="." unique_id=612189294]
+[node name="player1_base" type="Marker2D" parent="." unique_id=362545834]
+position = Vector2(963, 159)
 
-[node name="Marker2D" type="Marker2D" parent="player1_base" unique_id=1231947437]
-position = Vector2(964, 160)
+[node name="player2_base" type="Marker2D" parent="." unique_id=139262816]
+position = Vector2(1349, 541)
 
-[node name="player2_base" type="Node2D" parent="." unique_id=53676811]
+[node name="player3_base" type="Marker2D" parent="." unique_id=1809949948]
+position = Vector2(965, 928)
 
-[node name="Marker2D" type="Marker2D" parent="player2_base" unique_id=1619961016]
-position = Vector2(1347, 544)
+[node name="player4_base" type="Marker2D" parent="." unique_id=650361633]
+position = Vector2(580, 544)
 
-[node name="player3_base" type="Node2D" parent="." unique_id=440831220]
-
-[node name="Marker2D" type="Marker2D" parent="player3_base" unique_id=606372640]
-position = Vector2(964, 928)
-
-[node name="player4_base" type="Node2D" parent="." unique_id=1760983554]
-
-[node name="Marker2D" type="Marker2D" parent="player4_base" unique_id=1476358850]
-position = Vector2(580, 543)
-
-[node name="win" type="Node2D" parent="." unique_id=862974441]
-
-[node name="Marker2D" type="Marker2D" parent="win" unique_id=1115498184]
-position = Vector2(964.2955, 541.9707)
+[node name="win" type="Marker2D" parent="." unique_id=1804907471]
+position = Vector2(962.5756, 543.0976)
 
 [node name="outer_places" type="Node2D" parent="." unique_id=416664571]
 
@@ -120,8 +111,10 @@ position = Vector2(763, 548)
 
 [node name="Clickables" type="Node2D" parent="." unique_id=120909728]
 
-[node name="Pawn" parent="Clickables" unique_id=232028816 instance=ExtResource("3_lnu2h")]
-position = Vector2(247.13177, 457.61804)
+[node name="Pawn" parent="Clickables" unique_id=232028816 node_paths=PackedStringArray("current_pos") instance=ExtResource("3_lnu2h")]
+position = Vector2(572, 149)
+current_pos = NodePath("../../outer_places/pos_11")
+player_no = 1
 
 [node name="dice" type="Sprite2D" parent="Clickables" unique_id=1495706578]
 position = Vector2(1755, 94)

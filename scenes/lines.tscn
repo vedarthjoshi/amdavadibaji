@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://88xlxywb4enl"]
+
+[node name="Lines" type="Node2D" unique_id=707963289]
+modulate = Color(0.07444572, 0.07444573, 0.07444573, 1)
+
+[node name="Base" type="Node2D" parent="." unique_id=1016656073]
+
+[node name="Line2D" type="Line2D" parent="Base" unique_id=1516733092]
+position = Vector2(-542, -478)
+points = PackedVector2Array(256, 0, 256, 960)
+
+[node name="Line2D2" type="Line2D" parent="Base" unique_id=947005049]
+position = Vector2(-350, -478)
+points = PackedVector2Array(256, 0, 256, 960)
+
+[node name="Line2D3" type="Line2D" parent="Base" unique_id=269871557]
+position = Vector2(-158, -478)
+points = PackedVector2Array(256, 0, 256, 960)
+
+[node name="Line2D4" type="Line2D" parent="Base" unique_id=242173231]
+position = Vector2(34, -478)
+points = PackedVector2Array(256, 0, 256, 960)
+
+[node name="Line2D5" type="Line2D" parent="Base" unique_id=1516474925]
+position = Vector2(226, -478)
+points = PackedVector2Array(256, 0, 256, 960)
+
+[node name="Line2D6" type="Line2D" parent="Base" unique_id=276833442]
+position = Vector2(-734, -286)
+points = PackedVector2Array(256, 0, 1216, 0)
+
+[node name="Line2D7" type="Line2D" parent="Base" unique_id=1821569053]
+position = Vector2(-734, -94)
+points = PackedVector2Array(256, 0, 1216, 0)
+
+[node name="Line2D8" type="Line2D" parent="Base" unique_id=1356815717]
+position = Vector2(-734, 98)
+points = PackedVector2Array(256, 0, 1216, 0)
+
+[node name="Line2D9" type="Line2D" parent="Base" unique_id=1001133808]
+position = Vector2(-734, 290)
+points = PackedVector2Array(256, 0, 1216, 0)
+
+[node name="Line2D10" type="Line2D" parent="Base" unique_id=585077070]
+position = Vector2(-734, 482)
+points = PackedVector2Array(256, 0, 1216, 0)
+
+[node name="Line2D11" type="Line2D" parent="Base" unique_id=664143695]
+position = Vector2(-734, -478)
+points = PackedVector2Array(256, 0, 1216, 0)
+
+[node name="Line2D12" type="Line2D" parent="Base" unique_id=1120796350]
+position = Vector2(-734, -478)
+points = PackedVector2Array(256, 0, 256, 960)
+
+[node name="house1" type="Node2D" parent="." unique_id=1501613684]
+
+[node name="Line2D13" type="Line2D" parent="house1" unique_id=1873614018]
+position = Vector2(-352, -480)
+points = PackedVector2Array(256, 0, 448, 192)
+
+[node name="Line2D14" type="Line2D" parent="house1" unique_id=2092726670]
+position = Vector2(-352, -288)
+points = PackedVector2Array(264, 0, 448, -184)
+
+[node name="house2" type="Node2D" parent="." unique_id=661016975]
+position = Vector2(-384, 384)
+
+[node name="Line2D13" type="Line2D" parent="house2" unique_id=1014100385]
+position = Vector2(-352, -480)
+points = PackedVector2Array(256, 0, 448, 192)
+
+[node name="Line2D14" type="Line2D" parent="house2" unique_id=356049895]
+position = Vector2(-352, -288)
+points = PackedVector2Array(264, 0, 448, -184)
+
+[node name="house3" type="Node2D" parent="." unique_id=454118533]
+position = Vector2(0, 768)
+
+[node name="Line2D13" type="Line2D" parent="house3" unique_id=1398001080]
+position = Vector2(-352, -480)
+points = PackedVector2Array(256, 0, 448, 192)
+
+[node name="Line2D14" type="Line2D" parent="house3" unique_id=330348114]
+position = Vector2(-352, -288)
+points = PackedVector2Array(264, 0, 448, -184)
+
+[node name="house4" type="Node2D" parent="." unique_id=1295096911]
+position = Vector2(384, 384)
+
+[node name="Line2D13" type="Line2D" parent="house4" unique_id=397958206]
+position = Vector2(-352, -480)
+points = PackedVector2Array(256, 0, 448, 192)
+
+[node name="Line2D14" type="Line2D" parent="house4" unique_id=506247570]
+position = Vector2(-352, -288)
+points = PackedVector2Array(264, 0, 448, -184)
+
+[node name="house5" type="Node2D" parent="." unique_id=364927136]
+position = Vector2(0, 384)
+
+[node name="Line2D13" type="Line2D" parent="house5" unique_id=1511557553]
+position = Vector2(-352, -480)
+points = PackedVector2Array(256, 0, 448, 192)
+
+[node name="Line2D14" type="Line2D" parent="house5" unique_id=1835090495]
+position = Vector2(-352, -288)
+points = PackedVector2Array(264, 0, 448, -184)

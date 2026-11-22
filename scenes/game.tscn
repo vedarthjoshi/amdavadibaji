@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://q0x4ojva8hu2"]
+
+[ext_resource type="PackedScene" uid="uid://1r4wgy5jy3tn" path="res://scenes/board.tscn" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://bi8hdowwvapek" path="res://scripts/game.gd" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://c4jnafupsa2hd" path="res://scenes/pawn.tscn" id="3_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://cvja53uoy3lrd" path="res://assets/dice/dice_3D_detailed.png" id="4_lbhrr"]
+
+[sub_resource type="SystemFont" id="SystemFont_5mjyc"]
+font_names = PackedStringArray("Alagard")
+
+[sub_resource type="LabelSettings" id="LabelSettings_0b45s"]
+font = SubResource("SystemFont_5mjyc")
+font_size = 100
+font_color = Color(0.04755766, 0.047557645, 0.047557645, 1)
+
+[node name="Game" type="Node2D" unique_id=2070278366]
+script = ExtResource("1_yqjtg")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=807694911]
+
+[node name="board" parent="UI" unique_id=1973637512 instance=ExtResource("1_uwrxv")]
+mouse_filter = 2
+
+[node name="dice" type="Label" parent="UI" unique_id=1206560809]
+offset_left = 1655.0
+offset_top = 183.0
+offset_right = 1868.0
+offset_bottom = 277.0
+text = "190w"
+label_settings = SubResource("LabelSettings_0b45s")
+
+[node name="player1_base" type="Node2D" parent="." unique_id=612189294]
+
+[node name="Marker2D" type="Marker2D" parent="player1_base" unique_id=1231947437]
+position = Vector2(964, 160)
+
+[node name="player2_base" type="Node2D" parent="." unique_id=53676811]
+
+[node name="Marker2D" type="Marker2D" parent="player2_base" unique_id=1619961016]
+position = Vector2(1347, 544)
+
+[node name="player3_base" type="Node2D" parent="." unique_id=440831220]
+
+[node name="Marker2D" type="Marker2D" parent="player3_base" unique_id=606372640]
+position = Vector2(964, 928)
+
+[node name="player4_base" type="Node2D" parent="." unique_id=1760983554]
+
+[node name="Marker2D" type="Marker2D" parent="player4_base" unique_id=1476358850]
+position = Vector2(580, 543)
+
+[node name="win" type="Node2D" parent="." unique_id=862974441]
+
+[node name="Marker2D" type="Marker2D" parent="win" unique_id=1115498184]
+position = Vector2(964.2955, 541.9707)
+
+[node name="outer_places" type="Node2D" parent="." unique_id=416664571]
+
+[node name="pos_1" type="Marker2D" parent="outer_places" unique_id=889153044]
+position = Vector2(1150, 163)
+
+[node name="pos_2" type="Marker2D" parent="outer_places" unique_id=2041545032]
+position = Vector2(1347, 156)
+
+[node name="pos_3" type="Marker2D" parent="outer_places" unique_id=559732134]
+position = Vector2(1344, 355)
+
+[node name="pos_4" type="Marker2D" parent="outer_places" unique_id=1315168313]
+position = Vector2(1342, 743)
+
+[node name="pos_5" type="Marker2D" parent="outer_places" unique_id=538282405]
+position = Vector2(1346, 939)
+
+[node name="pos_6" type="Marker2D" parent="outer_places" unique_id=1960578407]
+position = Vector2(1157, 938)
+
+[node name="pos_7" type="Marker2D" parent="outer_places" unique_id=856356455]
+position = Vector2(767, 932)
+
+[node name="pos_8" type="Marker2D" parent="outer_places" unique_id=782045203]
+position = Vector2(573, 935)
+
+[node name="pos_9" type="Marker2D" parent="outer_places" unique_id=1040439257]
+position = Vector2(575, 729)
+
+[node name="pos_10" type="Marker2D" parent="outer_places" unique_id=24534709]
+position = Vector2(574, 350)
+
+[node name="pos_11" type="Marker2D" parent="outer_places" unique_id=476917585]
+position = Vector2(574, 155)
+
+[node name="pos_12" type="Marker2D" parent="outer_places" unique_id=802791851]
+position = Vector2(764, 153)
+
+[node name="inner_places" type="Node2D" parent="." unique_id=746949195]
+
+[node name="inner_pos_1" type="Marker2D" parent="inner_places" unique_id=282476430]
+position = Vector2(765, 350)
+
+[node name="inner_pos_2" type="Marker2D" parent="inner_places" unique_id=1697335749]
+position = Vector2(963, 352)
+
+[node name="inner_pos_3" type="Marker2D" parent="inner_places" unique_id=1035208765]
+position = Vector2(1154, 345)
+
+[node name="inner_pos_4" type="Marker2D" parent="inner_places" unique_id=1601857117]
+position = Vector2(1158, 539)
+
+[node name="inner_pos_5" type="Marker2D" parent="inner_places" unique_id=752598883]
+position = Vector2(1160, 738)
+
+[node name="inner_pos_6" type="Marker2D" parent="inner_places" unique_id=1619453664]
+position = Vector2(962, 743)
+
+[node name="inner_pos_7" type="Marker2D" parent="inner_places" unique_id=1255748279]
+position = Vector2(767, 738)
+
+[node name="inner_pos_8" type="Marker2D" parent="inner_places" unique_id=124155383]
+position = Vector2(763, 548)
+
+[node name="Clickables" type="Node2D" parent="." unique_id=120909728]
+
+[node name="Pawn" parent="Clickables" unique_id=232028816 instance=ExtResource("3_lnu2h")]
+position = Vector2(247.13177, 457.61804)
+
+[node name="dice" type="Sprite2D" parent="Clickables" unique_id=1495706578]
+position = Vector2(1755, 94)
+texture = ExtResource("4_lbhrr")

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://1r4wgy5jy3tn"]
+
+[ext_resource type="PackedScene" uid="uid://88xlxywb4enl" path="res://scenes/lines.tscn" id="1_bw3vb"]
+
+[node name="board" type="Control" unique_id=1973637512]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=386042997]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.92941177, 0.78039217, 0.5647059, 1)
+
+[node name="Lines" parent="." unique_id=707963289 instance=ExtResource("1_bw3vb")]
+position = Vector2(960, 540)

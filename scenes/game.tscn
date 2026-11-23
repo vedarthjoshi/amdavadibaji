@@ -114,7 +114,7 @@ position = Vector2(763, 548)
 [node name="Pawn" parent="Clickables" unique_id=232028816 node_paths=PackedStringArray("current_pos") instance=ExtResource("3_lnu2h")]
 position = Vector2(572, 149)
 current_pos = NodePath("../../outer_places/pos_11")
-player_no = 1
+player_no = 4
 
 [node name="dice" type="Sprite2D" parent="Clickables" unique_id=1495706578]
 position = Vector2(1755, 94)

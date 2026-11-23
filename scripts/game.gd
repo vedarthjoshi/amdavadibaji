@@ -37,22 +37,22 @@ const DICE_EMPTY = preload("uid://donf3db2sm0bp")
 @onready var clickables: Node2D = $Clickables
 
 @onready var positions : Dictionary = {
-	pos_1 : [pos_2, inner_pos_3],
-	pos_2 : [pos_3],
-	pos_3 : [player_2_base],
-	player_2_base : [pos_4],
-	pos_4 : [pos_5, inner_pos_5],
-	pos_5 : [pos_6],
-	pos_6 : [player_3_base],
-	player_3_base : [pos_7],
-	pos_7 : [pos_8, inner_pos_7],
-	pos_8 : [pos_9],
-	pos_9 : [player_4_base],
-	player_4_base: [pos_10],
-	pos_10 : [pos_11, inner_pos_1],
-	pos_11: [pos_12],
-	pos_12 : [player_1_base],
-	player_1_base : [pos_1],
+	pos_1 : [player_1_base, inner_pos_3],
+	pos_2 : [pos_1],
+	pos_3 : [pos_2],
+	player_2_base : [pos_3],
+	pos_4 : [player_2_base, inner_pos_5],
+	pos_5 : [pos_4],
+	pos_6 : [pos_5],
+	player_3_base : [pos_6],
+	pos_7 : [player_3_base, inner_pos_7],
+	pos_8 : [pos_7],
+	pos_9 : [pos_8],
+	player_4_base: [pos_9],
+	pos_10 : [player_4_base, inner_pos_1],
+	pos_11: [pos_10],
+	pos_12 : [pos_11],
+	player_1_base : [pos_12],
 	inner_pos_1: [inner_pos_2],
 	inner_pos_3: [inner_pos_4],
 	inner_pos_5: [inner_pos_6],
@@ -63,6 +63,12 @@ const DICE_EMPTY = preload("uid://donf3db2sm0bp")
 	inner_pos_8: [inner_pos_1, win]
 	}
 
+@onready var plyer_inner_markers : Dictionary = {
+		1: [pos_1, inner_pos_3],
+		2: [pos_4, inner_pos_5],
+		3: [pos_7, inner_pos_7],
+		4: [pos_10, inner_pos_1]
+}
 
 func all_player_starting_position():
 	pass
@@ -96,7 +102,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			if sprite.global_position.distance_squared_to(tap_pos) < 900.0:
 				
 				if sprite is Pawn:
-					print("Pawn")
+					#print("Pawn")
 					show_moves(sprite)
 				
 				#print("Tapped: ", sprite.name + " " + str(count))
@@ -134,8 +140,11 @@ func show_moves(pawn: Pawn) -> void:
 	# Start DFS from the pawn's current position with dice_val steps left
 	_dfs_moves(pawn.current_pos, dice_val, pawn.player_no)
 
+var show_inner = false
+var inner_showed = false
 func _dfs_moves(current_pos: Variant, steps_left: int, player_no : int) -> void:
 	# Base case: stop when we run out of dice steps
+	#print(steps_left)
 	if steps_left <= 0:
 		return
 
@@ -147,6 +156,14 @@ func _dfs_moves(current_pos: Variant, steps_left: int, player_no : int) -> void:
 		#marker.name == "player%d_base" % player_no or 
 		if marker.name.begins_with("pos_") or marker.name.begins_with("player"):
 			marker.get_child(0).show()
+		if show_inner and marker.name.begins_with("inner_"):
+			marker.get_child(0).show()
+		
+		if marker == plyer_inner_markers.get(player_no)[0]:
+			show_inner = true
+			#print(marker)
+			print(plyer_inner_markers.get(player_no)[0])
+			plyer_inner_markers.get(player_no)[1].get_child(0).show()
 		
 		# Recursively explore down this specific branch with 1 fewer step
 		_dfs_moves(marker, steps_left - 1, player_no)
